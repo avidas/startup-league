@@ -27,6 +27,7 @@ var connectAssets = require('connect-assets');
  */
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
+var leagueController = require('./controllers/league');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 var companiesController = require('./controllers/company');
@@ -151,6 +152,12 @@ app.get('/api/lob', apiController.getLob);
  * companies
  */
 app.get('/companies', companiesController.getAllCompanies);
+
+/**
+ * companies
+ */
+app.get('/leagues', leagueController.index);
+app.get('/new_league', leagueController.new);
 
 /**
  * OAuth authentication routes. (Sign in)

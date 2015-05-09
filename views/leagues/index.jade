@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Leagues
+  .row
+    .col-sm-6.col-sm-offset-3
+      .panel.panel-default
+        .panel-body
+          ul.feed
+            each val in ["Contrarians", "Austinites", "Hardware League"]
+              li.feed-item
+                span.name= val

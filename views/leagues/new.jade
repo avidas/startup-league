@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 New League
+  form(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .col-sm-8.col-sm-offset-2
+      .form-group
+        label.control-label(for='name') League Name
+        input.form-control(type='name', name='name', id='name', placeholder='League Name', autofocus=true)
+      .form-group
+        label.control-label(for='password') Invite your friends
+        input.form-control(type='textarea', name='users', id='users', placeholder='Users')
+      .form-group
+        button.btn.btn-primary(type='submit')
+          i.fa.fa-user
+          | Create New League
