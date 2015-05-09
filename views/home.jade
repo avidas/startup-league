@@ -6,22 +6,41 @@ block content
   hr
   .row
     .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+      .panel.panel-success
+        .panel-heading
+          h5 My Portfolio
+        .panel-body
+          ul.companies
+            each val in ["Slack", "Uber", "Cratejoy", "Periscope"]
+              li.company
+                span.picture img
+                span.name= val
+                .right
+                  span.arrow
+                    i.fa.fa-caret-up.fa-2x
+                  span.points 80
     .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+      .panel.panel-success
+        .panel-heading
+          h5 Companies
+        .panel-body
+          ul.companies
+            each val in ["Slack", "Uber", "Cratejoy", "Periscope", "Lyft", "Airbnb", "Coursera"]
+              li.company
+                span.picture img
+                span.name= val
+                .right
+                  a.btn.btn-primary Add to Portfolio
+                  span.points 80
+  .row
+    .col-sm-12
+      #feed
+        .panel.panel-success
+          .panel-heading
+            h5 News Feed
+          .panel-body
+            ul.feed
+              li.feed-item
+                  i.fa.fa-newspaper-o
+                  span Slack just got Techcrunched! Up 50 points!
+                  span.pull-right.text-muted.small 4 minutes ago
