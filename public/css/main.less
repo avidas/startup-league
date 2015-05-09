@@ -2,9 +2,14 @@
 @import "vendor/font-awesome/font-awesome";
 @import "vendor/bootstrap-social";
 @import "themes/default";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
-// Scaffolding
+// General
 // -------------------------
+
+html, body, h1, h2, h3, h4, h5, a, p {
+  font-family: "Open Sans";
+}
 
 html {
   position: relative;
@@ -61,30 +66,63 @@ footer {
   margin-right: 6px;
 }
 
-// -------------------Companies
+// -------------------Spacing
 // -------------------------
-.companies {
-  list-style-type: none;
+
+.fa-caret-up {
+  color: green;
 }
 
-.companies .company {
-  padding: 10px 0;
+.fa-caret-down {
+  color: red;
+}
+
+// -------------------Spacing
+// -------------------------
+.mr {
+  margin-right: 1rem;
+}
+
+.ml {
+  margin-left: 1rem;
+}
+
+// -------------------General
+// -------------------------
+.panel, .panel-heading, .panel-body {
+  border-radius: 0;
+}
+
+.panel .panel-heading {
+  background-color: #27ae60;
+}
+
+.panel-heading h2 {
+  color: white;
+  margin-top: 10px;
+}
+
+// -------------------Companies
+// -------------------------
+.feed, .companies {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.feed .feed-item, .companies .company {
+  line-height: 60px;
+  border-bottom: thin solid #efefef;
+}
+
+.feed .feed-item:last-child, .companies .company:last-child {
+  border-bottom: none;
 }
 
 .companies .company .picture {
   padding: 0 10px;
 }
 
-.right {
-  float: right;
-}
-
-.company .arrow {
-  color: green;
-}
-
-// -------------------Feed
-// -------------------------
-.feed-item {
-  list-style-type: none;
+.arrow i {
+  vertical-align: middle;
+  margin-bottom: 6px;
 }
