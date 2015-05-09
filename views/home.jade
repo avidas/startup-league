@@ -25,10 +25,11 @@ block content
           h2 Companies
         .panel-body
           ul.companies
-            each val in ["Slack", "Uber", "Cratejoy", "Periscope", "Lyft", "Airbnb", "Coursera"]
+            each startup in companies
               li.company
-                span.picture img
-                span.name= val
+                span.picture 
+                  img(src=startup.image)
+                span.name= startup.name
                 .pull-right
                   span.points.mr 80
                   a.btn.btn-primary.btn-sm Add to Portfolio

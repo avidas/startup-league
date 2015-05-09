@@ -9,4 +9,3 @@ exports.getAllCompanies = function(cb) {
     cb(err, companies);
   });
 };
-
