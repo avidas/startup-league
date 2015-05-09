@@ -29,7 +29,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
-
+var companiesController = require('./controllers/company');
 /**
  * API keys and Passport configuration.
  */
@@ -146,6 +146,11 @@ app.get('/api/paypal', apiController.getPayPal);
 app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
+
+/**
+ * companies
+ */
+app.get('/companies', companiesController.getAllCompanies);
 
 /**
  * OAuth authentication routes. (Sign in)

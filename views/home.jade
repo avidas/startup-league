@@ -5,6 +5,34 @@ block content
   p.lead A boilerplate for Node.js web applications.
   hr
   .row
+  .col-sm-6
+    .panel.panel-success
+      .panel-heading
+        h5 My Portfolio
+      .panel-body
+        ul.companies
+          each startup in companies
+            li.company
+              span.picture img
+              span.name= startup.name
+              .right
+                span.arrow
+                  i.fa.fa-caret-up.fa-2x
+                span.points 80
+  .col-sm-6
+    .panel.panel-success
+      .panel-heading
+        h5 Companies
+      .panel-body
+        ul.companies
+          each val in ["Slack", "Uber", "Cratejoy", "Periscope", "Lyft", "Airbnb", "Coursera"]
+            li.company
+              span.picture img
+              span.name= val
+              .right
+                a.btn.btn-primary Add to Portfolio
+                span.points 80
+  .row
     .col-sm-6
       .panel.panel-success
         .panel-heading
