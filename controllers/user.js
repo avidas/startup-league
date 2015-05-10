@@ -22,18 +22,36 @@ exports.getLogin = function(req, res) {
 exports.addCompanyToPortfolio = function (req, res) {
   console.log("here");
   if (req.user) {
-    Portfolio.findOne({ userId: req.user._id }, function (err, portfolio) {
-      if (portfolio) {
-        portfolio.companies.push(req.query.id);
-        portfolio.save(function (err) {
-          if (err) {
-            console.log(err);
-          } else {
-            return res.redirect('/');
-          }
-        });
-      }
-    });
+
+    var remainingPoints = req.user.profile.points - req.query.value;
+
+    if (remainingPoints > 0) {
+      Portfolio.findOne({ userId: req.user._id }, function (err, portfolio) {
+        if (portfolio) {
+          portfolio.companies.push(req.query.id);
+          portfolio.save(function (err) {
+            if (err) {
+              console.log(err);
+            } else {
+              User.findOne({_id: req.user._id}, function (err, user) {
+                user.profile.points = remainingPoints;
+                user.save(function (err) {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    req.flash('success', { msg: 'You have successfully invested in ' + req.query.name + '!' });
+                    return res.redirect('/');
+                  }
+                });
+              });
+            }
+          });
+        }
+      });
+    } else {
+      req.flash('errors', { msg: 'Sorry, you do not have enough points!' });
+      return res.redirect('/');
+    }
   } else {
     res.render('account/login', {
       title: 'Login'
