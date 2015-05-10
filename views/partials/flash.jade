@@ -1,5 +1,5 @@
 if messages.errors
-  .row
+  .topDiv.row
     .col-sm-12
       .alert.alert-danger.fade.in
         button.close(type='button', data-dismiss='alert')
@@ -7,7 +7,7 @@ if messages.errors
         for error in messages.errors
           div= error.msg
 if messages.info
-  .row
+  .topDiv.row
     .col-sm-12
       .alert.alert-info.fade.in
         button.close(type='button', data-dismiss='alert')
@@ -15,7 +15,7 @@ if messages.info
         for info in messages.info
           div= info.msg
 if messages.success
-  #topDiv.row
+  .topDiv.row
     .col-sm-12
       .alert.alert-success.fade.in
         button.close(type='button', data-dismiss='alert')
