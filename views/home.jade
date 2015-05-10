@@ -1,46 +1,58 @@
-extends layout
-
+extends home_layout
 block content
-  h1 Startup League
-  p.lead Fantasy Football for Startup investing. Can you pick the best startup?
-  hr
-  .row
-    .col-sm-6
-      .panel.panel-default
-        .panel-heading
-          h2 My Portfolio
-        .panel-body
-          ul.companies
-            each val in ["Slack", "Uber", "Cratejoy", "Periscope"]
-              li.company
-                span.picture img
-                span.name= val
-                .pull-right
-                  span.points.mr 80
-                  span.arrow.green
-                    i.fa.fa-caret-up.fa-2x
-    .col-sm-6
-      .panel.panel-default
-        .panel-heading
-          h2 Companies
-        .panel-body
-          ul.companies
-            each startup in companies
-              li.company
-                img(src=startup.image)
-                span.name= startup.name
-                .pull-right
-                  span.points.mr= startup.points
-                  a.btn.btn-primary.btn-sm Add to Portfolio
-  .row
-    .col-sm-12
-      #feed
+  .page-brand
+    img(src="img/logo.png")
+    span.brand-name Midas
+  .intro
+    .col-md-8.col-md-offset-2
+      .intro-content
+        h1
+          | Discover start-ups. <br />
+          | Follow their progress. <br />
+          | Ride the next unicorn.
+        a.button.button-primary Sign up
+        a.button.button-primary.button-white Log in
+  .container
+    h1 Startup League
+    p.lead Fantasy Football for Startup investing. Can you pick the best startup?
+    hr
+    .row
+      .col-sm-6
         .panel.panel-default
           .panel-heading
-            h2 News Feed
+            h2 Portfolio
           .panel-body
-            ul.feed
-              li.feed-item
-                i.fa.fa-newspaper-o
-                span Slack just got Techcrunched! Up 50 points!
-                span.pull-right.text-muted.small 4 minutes ago
+            ul.companies
+              each val in ["Slack", "Uber", "Cratejoy", "Periscope"]
+                li.company
+                  span.picture img
+                  span.name= val
+                  .pull-right
+                    span.points.mr 80
+                    span.arrow.green
+                      i.fa.fa-caret-up.fa-2x
+      .col-sm-6
+        .panel.panel-default
+          .panel-heading
+            h2 All Companies
+          .panel-body
+            ul.companies
+              each startup in companies
+                li.company
+                  img(src=startup.image)
+                  span.name= startup.name
+                  .pull-right
+                    span.points.mr= startup.points
+                    a.btn.btn-primary.btn-sm Add to Portfolio
+    .row
+      .col-sm-12
+        #feed
+          .panel.panel-default
+            .panel-heading
+              h2 News Feed
+            .panel-body
+              ul.feed
+                li.feed-item
+                  i.fa.fa-newspaper-o
+                  span Slack just got Techcrunched! Up 50 points!
+                  span.pull-right.text-muted.small 4 minutes ago

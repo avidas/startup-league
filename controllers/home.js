@@ -8,7 +8,7 @@ exports.index = function(req, res) {
   companyController.getAllCompanies(function (err, companies) {
       if (err) {
         req.flash('errors', err);
-        return res.redirect('/');        
+        return res.redirect('/');
       }
       res.render('home', {
         title: 'Home',
