@@ -23,11 +23,7 @@ var userSchema = new mongoose.Schema({
   },
 
   resetPasswordToken: String,
-  resetPasswordExpires: Date,
-  portfolioId: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Portfolio'
-  }
+  resetPasswordExpires: Date
 });
 
 /**

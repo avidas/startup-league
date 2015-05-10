@@ -34,12 +34,12 @@ block content
             h2 Portfolio
           .panel-body
             ul.companies
-              each val in ["Slack", "Uber", "Cratejoy", "Periscope"]
+              each startup in portfolio.companies
                 li.company
-                  span.picture img
-                  span.name= val
+                  img(src=startup.image)
+                  span.name= startup.name
                   .pull-right
-                    span.points.mr 80
+                    span.points.mr= startup.points
                     span.arrow.green
                       i.fa.fa-caret-up.fa-2x
       .col-sm-6
@@ -54,16 +54,16 @@ block content
                   span.name= startup.name
                   .pull-right
                     span.points.mr= startup.points
-                    a.btn.btn-primary.btn-sm Add to Portfolio
-    .row
-      .col-sm-12
-        #feed
-          .panel.panel-default
-            .panel-heading
-              h2 News Feed
-            .panel-body
-              ul.feed
-                li.feed-item
-                  i.fa.fa-newspaper-o
-                  span Slack just got Techcrunched! Up 50 points!
-                  span.pull-right.text-muted.small 4 minutes ago
+                    a.btn.btn-primary.btn-sm(href="/users/portfolio?id="+startup._id) Add to Portfolio
+  .row
+    .col-sm-12
+      #feed
+        .panel.panel-default
+          .panel-heading
+            h2 News Feed
+          .panel-body
+            ul.feed
+              li.feed-item
+                i.fa.fa-newspaper-o
+                span Slack just got Techcrunched! Up 50 points!
+                span.pull-right.text-muted.small 4 minutes ago

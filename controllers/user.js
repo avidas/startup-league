@@ -4,7 +4,9 @@ var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var passport = require('passport');
 var User = require('../models/User');
+var Portfolio = require('../models/Portfolio');
 var secrets = require('../config/secrets');
+var mongoose = require('mongoose');
 
 /**
  * GET /login
@@ -15,6 +17,28 @@ exports.getLogin = function(req, res) {
   res.render('account/login', {
     title: 'Login'
   });
+};
+
+exports.addCompanyToPortfolio = function (req, res) {
+  console.log("here");
+  if (req.user) {
+    Portfolio.findOne({ userId: req.user._id }, function (err, portfolio) {
+      if (portfolio) {
+        portfolio.companies.push(req.query.id);
+        portfolio.save(function (err) {
+          if (err) {
+            console.log(err);
+          } else {
+            return res.redirect('/');
+          }
+        });
+      }
+    });
+  } else {
+    res.render('account/login', {
+      title: 'Login'
+    });    
+  }
 };
 
 /**

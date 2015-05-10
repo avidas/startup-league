@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var portfolioSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.ObjectId,
-        ref: 'User'
+        ref: 'Portfolio'
     },
-    companies: [Schema.Types.ObjectId]
+    companies: [mongoose.Schema.ObjectId]
 });
 
 module.exports = mongoose.model('Portfolio', portfolioSchema);

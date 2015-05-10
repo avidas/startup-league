@@ -152,6 +152,7 @@ app.get('/api/lob', apiController.getLob);
  * companies
  */
 app.get('/companies', companiesController.getAllCompanies);
+app.get('/users/portfolio', userController.addCompanyToPortfolio);
 
 /**
  * companies
