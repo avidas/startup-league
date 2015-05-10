@@ -11,24 +11,30 @@ exports.index = function(req, res) {
         req.flash('errors', err);
         return res.redirect('/');
       }
-
-      portfolioController.getPortfolio(req.user.id, function (err, portfolio) {
-
-        var myCompanies = [];
-        portfolio.companies.forEach(function(startupId) {
-            companies.forEach(function(comp) {
-                if (String(comp._id) === String(startupId)) {
-                    myCompanies.push(comp);
-                }
-            });
-        });
+      else if (!req.user) {
         res.render('home', {
             title: 'Home',
-            portfolio: {
-                companies: myCompanies
-            },
             companies: companies
-        });
-      });
+        });        
+      } else {
+          portfolioController.getPortfolio(req.user.id, function (err, portfolio) {
+
+            var myCompanies = [];
+            portfolio.companies.forEach(function(startupId) {
+                companies.forEach(function(comp) {
+                    if (String(comp._id) === String(startupId)) {
+                        myCompanies.push(comp);
+                    }
+                });
+            });
+            res.render('home', {
+                title: 'Home',
+                portfolio: {
+                    companies: myCompanies
+                },
+                companies: companies
+            });
+          });        
+      }
   });
 };
