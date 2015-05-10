@@ -15,7 +15,7 @@ exports.index = function(req, res) {
         res.render('home', {
             title: 'Home',
             companies: companies
-        });        
+        });
       } else {
           portfolioController.getPortfolio(req.user.id, function (err, portfolio) {
 
@@ -27,6 +27,9 @@ exports.index = function(req, res) {
                     }
                 });
             });
+            if (req.user.profile.name && req.user.profile.points) {
+                req.flash('success', { msg: 'Hey ' + req.user.profile.name + '! You have ' + req.user.profile.points + ' points. Choose wisely!' });
+            }
             res.render('home', {
                 title: 'Home',
                 portfolio: {
