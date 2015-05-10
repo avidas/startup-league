@@ -20,13 +20,18 @@ exports.index = function(req, res) {
           portfolioController.getPortfolio(req.user.id, function (err, portfolio) {
 
             var myCompanies = [];
-            portfolio.companies.forEach(function(startupId) {
-                companies.forEach(function(comp) {
-                    if (String(comp._id) === String(startupId)) {
-                        myCompanies.push(comp);
-                    }
-                });
-            });
+            if (portfolio) {
+                if (portfolio.companies) {
+                    portfolio.companies.forEach(function(startupId) {
+                        companies.forEach(function(comp) {
+                            if (String(comp._id) === String(startupId)) {
+                                myCompanies.push(comp);
+                            }
+                        });
+                    });                  
+                }
+            }
+
             if (req.user.profile.name && req.user.profile.points) {
                 req.flash('success', { msg: 'Hey ' + req.user.profile.name + '! You have ' + req.user.profile.points + ' points. Choose wisely!' });
             }
