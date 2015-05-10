@@ -29,8 +29,8 @@ $(document).ready(function() {
 
     function disFlash() {
       setTimeout(function(){
-        $('.alert').slideUp(500);
-      }, 1000);
+        $('.alert').slideUp(1500);
+      }, 2500);
     };
 
     //animateRows();
