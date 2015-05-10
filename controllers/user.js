@@ -20,7 +20,6 @@ exports.getLogin = function(req, res) {
 };
 
 exports.addCompanyToPortfolio = function (req, res) {
-  console.log("here");
   if (req.user) {
 
     var remainingPoints = req.user.profile.points - req.query.value;
