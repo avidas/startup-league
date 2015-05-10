@@ -5,7 +5,9 @@ var companySchema = new mongoose.Schema({
     image: { type: String, default: ''},
     raised: { type: String, default: ''},
     series: { type: String, default: ''},
-    points: Number
+    points: Number,
+    yearlyRevenue: Number,
+    numberOfEmployees: Number
 });
 
 module.exports = mongoose.model('Company', companySchema);
